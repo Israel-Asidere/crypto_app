@@ -1,11 +1,11 @@
 import { Row, Statistic, Typography } from 'antd'
 import Col from 'antd/es/grid/col'
-import { Title } from 'chart.js'
 import React from 'react'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Cryptocurrencies, News } from '../components'
+import Loader from './Loader'
 
 const { Title } = Typography
 
@@ -13,7 +13,7 @@ const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10)
   const globalStats = data?.data?.stats
 
-  if (isFetching) return 'Loading... '
+  if (isFetching) return <Loader />
   return (
     <>
       <Title level={2} className='heading'>

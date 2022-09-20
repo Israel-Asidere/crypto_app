@@ -14,7 +14,7 @@ const createRequest = url => ({ url, headers: cryptoNewsHeaders })
 export const cryptoNewsApi = createApi({
   reducerPath: 'cryptoNewsApi',
   baseQuery: fetchBaseQuery({ baseUrl }),
-  emdpoints: builder => ({
+  endpoints: builder => ({
     getCryptoNews: builder.query({
       query: ({ newsCategory, count }) =>
         createRequest(
